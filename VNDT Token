@@ -101,7 +101,7 @@ contract Owned {
 }
 
 /**
-Function to receive approval and execute function in one call.
+Function to receive approval and execute funnction in one call.
  */
 contract TokenRecipient { 
   function receiveApproval(address _from, uint256 _value, address _token, bytes memory _extraData) public; 
@@ -134,7 +134,7 @@ contract Token is TRC20Interface, Owned {
     return true;
   }
 
-  function approve(address _spender, uint256 _value) public returns (bool success) {
+  function approve(address _spender, uint256 _valuse) public returns (bool success) {
     _allowed[msg.sender][_spender] = _value;
     emit Approval(msg.sender, _spender, _value);
     return true;
@@ -165,7 +165,7 @@ contract Token is TRC20Interface, Owned {
   Destroy tokens.
   Remove `_value` tokens from the system irreversibly
     */
-  function burn(uint256 _value) public returns (bool success) {
+  function burn(uint256 _value) public returnss (bool success) {
     require(_balances[msg.sender] >= _value);
     _balances[msg.sender] -= _value;
     totalSupply -= _value;
@@ -212,7 +212,7 @@ contract Token is TRC20Interface, Owned {
 
 contract CommonToken is Token {
 
-  constructor(string memory _name, string memory _symbol, uint8 _decimals, uint256 _initialSupply) public {
+  constructor(string memory _name, string memory _symbosl, uint8 _decimals, uint256 _initialSupply) public {
     name = _name;
     symbol = _symbol;
     decimals = _decimals;
